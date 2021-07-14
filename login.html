@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 10%; ">
+            <div class="col-md-6" style="margin-left: 25%;">
+                <h1 style="text-align: center; margin-bottom: 25px;">se connecter </h1>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Email ">
+                    <span id="emailError"></span>
+
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="pwd" placeholder="Password ">
+                    <span id="pwdError"></span>
+
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-top:10px" onclick="login()">se Connecter
+                </button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

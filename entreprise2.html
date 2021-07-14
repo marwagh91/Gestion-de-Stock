@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='script.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <h1 style="text-align: center;" >DASHBOARD</h1>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-top: 40px;">
+                    <button class="nav-link active" id="nav-categories-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories"
+                        aria-selected="true">Categories</button>
+                    <button class="nav-link" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie"
+                        type="button" role="tab" aria-controls="nav-categorie" aria-selected="false">Ajout des
+                        Catégories</button>
+                    <button class="nav-link" id="nav-produits-tab" data-bs-toggle="tab" data-bs-target="#nav-produits"
+                        type="button" role="tab" aria-controls="nav-produits" aria-selected="false">produits</button>
+                    <button class="nav-link" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit"
+                        type="button" role="tab" aria-controls="nav-produit" aria-selected="false">Ajouter des produits</button>
+                        <button class="nav-link" id="nav-achat-tab" data-bs-toggle="tab" data-bs-target="#nav-achat"
+                        type="button" role="tab" aria-controls="nav-achat" aria-selected="false"> Achat</button>
+                        
+                        <button class="nav-link" id="nav-CF-tab" data-bs-toggle="tab" data-bs-target="#nav-CF"
+                        type="button" role="tab" aria-controls="nav-CF" aria-selected="false">Ajouter Client/Fournisseurs</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-categories" role="tabpanel"
+                    aria-labelledby="nav-categories-tab">
+                    <div id="categoryTable">
+                        <script>displayCategories()</script>
+                    </div> 
+                    <div id="ModifCategorie">
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
+                    <div class="container" style="margin-top: 5%; margin-left: 25%;">
+                        <div class="col-lg-6">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="nomCategorie" placeholder="Nom Categorie"> 
+                                <span id="nomCategorieError"></span>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="descriptionCategorie" rows="3" placeholder="Description"></textarea>
+                        </div>
+                        <span id="descriptionCategorieError"></span>
+                        <button type="button" class="btn btn-primary" style="margin-left: 40%;" onclick="ajoutCategorie()">Ajouter</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="nav-produits" role="tabpanel" aria-labelledby="nav-produits-tab">
+                    <div id="TableProduit">
+                        <script>displayProduit()</script>
+                    </div>
+                    <div id="ModifProduit"></div> 
+                </div>
+                <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
+                    <div class="container" style="margin-top: 5%; margin-left: 25%;">
+                        <div class="col-lg-6" id="produitForm" >
+                        <script>ajoutProduit()</script>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-CF" role="tabpanel" aria-labelledby="nav-CF-tab">
+                    <div class="container" style="margin-top: 5%; margin-left: 25%;">
+                        <div class="col-lg-6" id="CFTable">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="nomCF" placeholder="Nom Client/Fournisseur"> 
+                                <span id="nomCFError"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="immatriculeCF" placeholder="Immatricule CF">
+                            <span id="immatriculeCFError"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="client">Client</label>
+                            <input type="radio" value="client" name="cf" id="client">
+                            <label for="fournisseur">Fournisseur</label>
+                            <input type="radio" value="fournisseur" name="cf" id="fournisseur">
+                            <span id="cfError"></span>
+                        </div>
+                        <button type="button" class="btn btn-primary" style="margin-left: 40%;" onclick="ajoutCF()">Ajouter</button>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="tab-pane fade" id="nav-achat" role="tabpanel" aria-labelledby="nav-achat-tab">
+                    <div class="container" style="margin-top: 5%;">
+                    <div id="selectFrs">
+                        <script>
+                            chercherFournisseur();
+                        </script>
+
+                    </div>
+                    <div id="btn">
+                    </div>
+                    <div id="produitsFrsTable"></div>
+                    </div>
+                 
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
